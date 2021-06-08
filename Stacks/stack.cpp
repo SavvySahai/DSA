@@ -3,7 +3,7 @@
 using namespace std;
 int main(){
     stack<int> num;
-    num.push(1);
+    num.push(1); //change stacks!
     num.push(2);
     num.push(3);
     num.push(4);
