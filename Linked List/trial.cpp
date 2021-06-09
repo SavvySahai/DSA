@@ -83,18 +83,18 @@ class LinkedList{
     int view_last(){
         if(tail==nullptr){
             cout<<"List Empty"<<endl;
-            return;
+            return -1;
         }
 
-        return head->data;
+        return tail->data;
     }
 
     int view_front(){
         if(head==nullptr){
             cout<<"List Empty"<<endl;
-            return;
+            return -1;
         }
-        return tail->data;
+        return head->data;
     }
 
     //void dispaly_lst(){}
@@ -113,8 +113,8 @@ int main(){
     lst.push_front(50);
     lst.push_front(60);
 
-    //cout<<"First element in list is "<<lst.view_front()<<endl;
-    //cout<<"Last element in list is "<<lst.view_last()<<endl;
+    cout<<"First element in list is "<<lst.view_front()<<endl;
+    cout<<"Last element in list is "<<lst.view_last()<<endl;
 
     //lst.display_lst();
 
