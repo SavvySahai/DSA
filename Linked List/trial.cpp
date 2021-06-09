@@ -44,7 +44,7 @@ class LinkedList{
             head = tail = n;
         }
         
-        head->next=n;
+        n->head= head;
         head = n;
 
         size++;
