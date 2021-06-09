@@ -97,7 +97,12 @@ class LinkedList{
         return head->data;
     }
 
-    //void dispaly_lst(){}
+    /*void dispaly_lst(){
+        Node *n = head;
+        while(n!=nullptr){
+            cout<<n->data<<""<<endl;
+        }
+    }*/
 
 };
 
@@ -119,7 +124,7 @@ int main(){
     //lst.display_lst();
 
     lst.pop_end();
-    //lst.pop_front();
+    lst.pop_front();
 
     //lst.display_lst();
 
