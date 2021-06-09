@@ -80,9 +80,22 @@ class LinkedList{
         size--;
     }
 
-    //int view_last(){}
+    int view_last(){
+        if(tail==nullptr){
+            cout<<"List Empty"<<endl;
+            return;
+        }
 
-    //int view_front(){}
+        return head->data;
+    }
+
+    int view_front(){
+        if(head==nullptr){
+            cout<<"List Empty"<<endl;
+            return;
+        }
+        return tail->data;
+    }
 
     //void dispaly_lst(){}
 
