@@ -32,7 +32,8 @@ class LinkedList{
             return;
         }
         
-        head->next=n;
+        tail->next = n;
+        tail = n;
         
         size++;
     }
@@ -40,10 +41,11 @@ class LinkedList{
     void push_front(int ele){
         Node *n = new Node(ele);
         if(head==nullptr){
-            tail = head = n;
+            head = tail = n;
         }
         
-        tail->next=n;
+        head->next=n;
+        head = n;
 
         size++;
     }
@@ -72,6 +74,10 @@ class LinkedList{
             head = tail = nullptr;
             return;
         }
+
+
+
+        size--;
     }
 
     //int view_last(){}
