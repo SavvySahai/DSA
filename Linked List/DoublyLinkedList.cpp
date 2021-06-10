@@ -30,6 +30,7 @@ class LinkedList{
         Node* n = new Node(ele);
         if(tail == nullptr){
             tail = head = n;
+            size = 1;
             return;
         }
         tail->next = n;
@@ -44,6 +45,7 @@ class LinkedList{
         Node *n = new Node(ele);
         if(head==nullptr){
             head = tail = n;
+            size = 1;
             return;
         }
         n->next= head;
@@ -60,6 +62,7 @@ class LinkedList{
         }
         if (tail==head){
             tail = head = nullptr;
+            size = 0;
             return;
         }
 
@@ -77,6 +80,7 @@ class LinkedList{
         }
         if(head==tail){
             head = tail = nullptr;
+            size = 0;
             return;
         }
 
