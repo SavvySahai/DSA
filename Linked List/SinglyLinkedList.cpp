@@ -115,6 +115,7 @@ class LinkedList{
         while(p!=nullptr){
             cout<<p->data<<"";            
         }
+        
         cout<<endl;
     }
 };
