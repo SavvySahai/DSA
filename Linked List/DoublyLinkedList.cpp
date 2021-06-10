@@ -62,9 +62,9 @@ class LinkedList{
             tail = head = nullptr;
             return;
         }
-        Node *n = tail;
-        tail->next = n;
-        n->prev = tail;
+
+        tail = tail->prev;
+        tail->next= nullptr;
 
         size--;
 
@@ -79,10 +79,10 @@ class LinkedList{
             head = tail = nullptr;
             return;
         }
-        Node *n = head;
-        head->next = n;
-        n->prev = head;
-        head = n;
+
+        head = head->next;
+        head->prev = nullptr;
+        
 
         size--;
     }
@@ -92,7 +92,9 @@ class LinkedList{
             cout<<"List is empty"<<endl;
             return-1;
         }
-        tail->data;
+        return tail->data;
+        
+
     }
 
     int view_front(){
@@ -100,15 +102,16 @@ class LinkedList{
             cout<<"List is empty"<<endl;
             return -1;
         }
-        head->data;
+        return head->data;
+        
     }
 
     void display_lst(){
         Node *p = head;
         while(p!= nullptr){
-            cout<<p->data<<""<<endl;            
+            cout<<p->data<<""<<endl;
+            p = p->next;           
         }
-
         cout<<endl;
     }
 };
@@ -120,7 +123,7 @@ int main(){
     lst.push_end(30);
     lst.push_end(40);
 
-    cout<<"Size of my list"<<lst.size<<endl;
+    cout<<"Size of my list : "<<lst.size<<endl;
 
     lst.push_front(50);
     lst.push_front(60);
@@ -134,5 +137,7 @@ int main(){
     lst.pop_front();
 
     lst.display_lst();
+
+    return 0;
 
 }
