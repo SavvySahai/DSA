@@ -113,7 +113,7 @@ class LinkedList{
     void display_lst(){
         Node *p = head;
         while(p!=nullptr){
-            cout<<p->data<<""; 
+            cout<<p->data<<""endl; 
             p = p->next;           
         }
         
