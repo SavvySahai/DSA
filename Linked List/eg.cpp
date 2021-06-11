@@ -7,8 +7,7 @@ class Node{
     Node *next;
     Node *prev;
 
-    Node(int data){
-        this->data = data;
+    Node(int data):data(data){
         next = nullptr;
         prev = nullptr;
     }
@@ -17,9 +16,9 @@ class Node{
 class LinkedList{
     Node *head;
     Node *tail;
+
     public:
     int size;
-
     LinkedList(){
         head = nullptr;
         tail = nullptr;
@@ -28,45 +27,49 @@ class LinkedList{
 
     void push_end(int ele){
         Node *n = new Node(ele);
-        if(tail == nullptr){
-            tail = head = n;
+        
+        if(tail==nullptr){
+            head = tail = n;
             size = 1;
             return;
         }
+
         tail->next = n;
         n->prev = tail;
         tail = n;
 
         size++;
-                
     }
 
     void push_front(int ele){
         Node *n = new Node(ele);
+
         if(head == nullptr){
-            head = tail = n;
+            tail = head = n;
             size = 1;
             return;
         }
-        n->next = head;
-        head->prev= head;
-        head = n;
-        
 
+        head->prev = n;
+        n->next = head;
+        head = n;
+
+        size++;
     }
 
     void pop_end(){
-        if (tail == nullptr){
+        if(tail == nullptr){
             cout<<"List underflow"<<endl;
             return;
         }
-        if(tail == head){
-            tail = head = nullptr;
+        if(head == tail){
+            head = tail = nullptr;
             size = 0;
             return;
         }
+
         tail = tail->prev;
-        tail->next= nullptr;
+        tail->next = nullptr;
 
         size--;
     }
@@ -76,47 +79,52 @@ class LinkedList{
             cout<<"List underflow"<<endl;
             return;
         }
+
         if(head == tail){
             head = tail = nullptr;
             size = 0;
             return;
         }
+
         head = head->next;
         head->prev = nullptr;
 
         size--;
     }
 
-    int view_front(){
-        if(head == nullptr){
-            cout<<"List is empty"<<endl;
-            return -1;
-        }
-        return head->data;
-    }
-
     int view_last(){
         if(tail == nullptr){
-            cout<<"List is empty"<<endl;
+            cout<<"List empty"<<endl;
             return -1;
         }
+
         return tail->data;
+    }
+
+    int view_front(){
+        if(head == nullptr){
+            cout<<"List empty"<<endl;
+            return -1;
+        }
+
+        return head->data;
     }
 
     void display_lst(){
         Node *p = head;
-        while(p!=tail){
-            cout<<p->data<<""<<endl;
+
+        while(p!=nullptr){
+            cout<<p->data<<" ";
             p = p->next;
         }
+
         cout<<endl;
     }
 };
 
-class Stacks{
+class Stack{
     LinkedList lst;
     public:
-
     void push(int ele){
         lst.push_end(ele);
     }
@@ -133,27 +141,21 @@ class Stacks{
         return lst.size;
     }
 };
-  
+
 int main(){
-    Stacks s;
+    Stack s;
+
     s.push(10);
     s.push(20);
     s.push(30);
     s.push(40);
 
-    cout<<"Size of the stack: "<<s.size()<<endl;
-    cout<<"Topmost element of the stack: "<<s.top()<<endl;
+    cout<<"Size of my stack is "<<s.size()<<endl;
 
+    cout<<"Top of stack is "<<s.top()<<endl;
     s.pop();
     s.pop();
-
-    cout<<"Topmost element of the stack: "<<s.top()<<endl;
+    cout<<"Top of stack is "<<s.top()<<endl;
 
     return 0;
-
 }
-/*int main(){
-    Queue q;
-    
-}
-*/

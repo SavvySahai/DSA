@@ -51,7 +51,8 @@ class LinkedList{
         n->next = head;
         head->prev= head;
         head = n;
-        
+
+        size++;
 
     }
 
@@ -133,27 +134,44 @@ class Stacks{
         return lst.size;
     }
 };
+
+class Queue{
+    LinkedList lst;
+    public:
+
+    int peek(){
+        return lst.view_front();
+    }
+
+    void pop(){
+        lst.pop_front();
+    }
+
+    void push(int ele){
+        lst.push_end(ele);
+    }
+
+    int size(){
+        return lst.size;
+    }
+};
   
 int main(){
-    Stacks s;
-    s.push(10);
-    s.push(20);
-    s.push(30);
-    s.push(40);
+    Queue q;
+    q.push(10);
+    q.push(20);
+    q.push(30);
+    q.push(40);
 
-    cout<<"Size of the stack: "<<s.size()<<endl;
-    cout<<"Topmost element of the stack: "<<s.top()<<endl;
+    cout<<"Size of the queue: "<<q.size()<<endl;
+    cout<<"Topmost element of the queue: "<<q.peek()<<endl;
 
-    s.pop();
-    s.pop();
+    q.pop();
+    q.pop();
 
-    cout<<"Topmost element of the stack: "<<s.top()<<endl;
+    cout<<"Size of the queue: "<<q.size()<<endl;
+    cout<<"Topmost element of the queue : "<<q.peek()<<endl;
 
     return 0;
 
 }
-/*int main(){
-    Queue q;
-    
-}
-*/
