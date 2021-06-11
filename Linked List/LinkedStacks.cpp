@@ -7,7 +7,7 @@ class Node{
     Node *next;
     Node *prev;
 
-    Node(int ele){
+    Node(int data){
         this->data = data;
         next = nullptr;
         prev = nullptr;
@@ -28,7 +28,7 @@ class LinkedList{
 
     void push_end(int ele){
         Node *n = new Node(ele);
-        if(tail = nullptr){
+        if(tail == nullptr){
             tail = head = n;
             size = 1;
             return;
@@ -36,6 +36,8 @@ class LinkedList{
         tail->next = n;
         n->prev = tail;
         tail = n;
+
+        size++;
                 
     }
 
@@ -49,6 +51,8 @@ class LinkedList{
         n->next = head;
         head->prev= head;
         head = n;
+
+        size++;
 
     }
 
@@ -69,7 +73,7 @@ class LinkedList{
     }
 
     void pop_front(){
-        if(head = nullptr){
+        if(head == nullptr){
             cout<<"List underflow"<<endl;
             return;
         }
@@ -85,7 +89,7 @@ class LinkedList{
     }
 
     int view_front(){
-        if(head==nullptr){
+        if(head == nullptr){
             cout<<"List is empty"<<endl;
             return -1;
         }
@@ -93,7 +97,7 @@ class LinkedList{
     }
 
     int view_last(){
-        if(tail==nullptr){
+        if(tail == nullptr){
             cout<<"List is empty"<<endl;
             return -1;
         }
@@ -122,16 +126,15 @@ class Stacks{
         lst.pop_end();
     }
 
-    void top(){
+    int top(){
         return lst.view_last();
     }
 
     int size(){
-        lst.size();
+        return lst.size;
     }
-
 };
-
+  
 int main(){
     Stacks s;
     s.push(10);
@@ -139,13 +142,19 @@ int main(){
     s.push(30);
     s.push(40);
 
-    cout<<"Size of the stack: "<<lst.size()<<endl;
+    cout<<"Size of the stack: "<<s.size()<<endl;
+    cout<<"Topmost element of the stack: "<<s.top()<<endl;
 
     s.pop();
     s.pop();
 
-    s.top();
+    cout<<"Topmost element of the stack: "<<s.top()<<endl;
 
-    cout<<"Size of the stack: "<<lst.size()<<endl;
+    return 0;
 
 }
+/*int main(){
+    Queue q;
+    
+}
+*/
