@@ -5,7 +5,7 @@ public:
     string reverseWords(string s) {
         stack<char> s
             
-            s.push("Try");
+        s.push("Try");
         s.push("to");
         s.push("excel.");
         
