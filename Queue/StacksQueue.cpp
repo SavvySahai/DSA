@@ -2,26 +2,26 @@
 using namespace std;
 
 class Queue{
-    public:
     int arr[5];
     int front;
     int rear;
     int size;
 
+    public:
     Queue(){
         front = rear = size = 0;
     }
 
-    void push(int arr){
+    void push(int ele){
         if(size == 5){
+            cout<<"Queue overflow"<<endl;
+            return;
+        }
+        if(rear == 5){
             cout<<"Queue saturated"<<endl;
             return;
         }
-        if(size == 0){
-            cout<<"Queue underrflow"<<endl;
-            return;
-        }
-        arr[] = rear;
+        arr[rear] = ele;
         rear++;
 
         size++;
@@ -29,25 +29,26 @@ class Queue{
 
     void pop(){
         if(size == 0){
-            cout<<"Queue underrflow"<<endl;
+            cout<<"Queue underflow"<<endl;
             return;
         }
+
+        front++;
 
         size--;
     }
 
-    void peek(){
+    int peek(){
         if(size == 0){
-            cout<<"Queue underrflow"<<endl;
-            return;
+            cout<<"Queue empty"<<endl;
+            return -1;
         }
-
-
+        return arr[front];
 
     }
 
-    int size(){
-        return get_size();
+    int get_size(){
+        return size;
     }
 
 };
@@ -55,9 +56,22 @@ class Queue{
 int main(){
     Queue q;
 
-    for(int i = 0 ; i <= 5 ; i++){
-        q.push[i];
-    }
-    cout << ""
+    for(int i = 0 ; i < 5 ; i++){
+        q.push(i*5);
+     }
+
+    q.push(8);
+    
+    cout << "Size of queue: "<<q.get_size()<<endl;
+
+     for(int i = 0 ; i <= 5 ; i++){
+        cout<<q.peek()<<" ";
+        q.pop();
+     }
+
+    cout << "Size of queue: "<<q.get_size()<<endl;
+
+    q.push(9);
+    return 0;
 
 }
