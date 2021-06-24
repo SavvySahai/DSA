@@ -35,7 +35,7 @@ class Node{
 
 int main(){
     Node *root = new Node(1);           //We can declare the root only once 
-    root->left = new Node(2);           //Then we can we the normal navigation method and 
+    root->left = new Node(2);           //Then we can use the normal navigation method and print
     root->left->left = new Node(11);
 
     root->right = new Node(3);
