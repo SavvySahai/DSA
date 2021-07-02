@@ -51,27 +51,37 @@ class BST{
     //Insertion recur method 1
     //Wrong method; Why?
 
-    void insert_ele(Node *root, int ele){
-        if(root == nullptr){
-            root = new Node(ele);
-            return;
-        }
-        if (ele <= root->data){
-            if(root->left == nullptr){
-                root->left = new Node(ele);
-                }else insert_ele(root->left, ele);
-            }else{
-                if(root->right == nullptr){
-                    root->right = new Node(ele);
-                    }else insert_ele(root->right, ele);
-                }
-        }
+    // void insert_ele(Node *root, int ele){
+    //     if(root == nullptr){
+    //         root = new Node(ele);
+    //         return;
+    //     }
+    //     if (ele <= root->data){
+    //         if(root->left == nullptr){
+    //             root->left = new Node(ele);
+    //             }else insert_ele(root->left, ele);
+    //         }else{
+    //             if(root->right == nullptr){
+    //                 root->right = new Node(ele);
+    //                 }else insert_ele(root->right, ele);
+    //             }
+    //     }
 
     //Insertion recur method 2
     //This is a right method
+
+    Node* insert_ele(Node *root, int ele){
+        if(root == nullptr){
+            return new Node(ele);
+        }
+        if(ele <= root->data){
+            root->left = insert_ele(root->left,ele);
+        }else root->right = insert_ele(root->right,ele);
         
-
-
+        return root;
+        
+    }
+        
     public:
     BST(){
         root = nullptr;
@@ -145,6 +155,11 @@ class BST{
     // void insert(int ele){
     //     insert_ele(root,ele);
     // }
+
+    //For inertion M2
+    void insert(int ele){
+        root = insert_ele(root,ele);
+    }
 
     void is_present(int ele){
         if(node_present (root,ele)){
