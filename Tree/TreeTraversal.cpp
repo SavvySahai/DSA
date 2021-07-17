@@ -13,7 +13,7 @@ class Node{
 };
 
     void inorder(Node *root){           //At the end we need to print the values of root, so root needs to point to the data
-        if(root == nullptr) return;
+        if(root == nullptr) return;     //We use recursive call in this 
         inorder(root->left);
         cout<<root->data<<" ";
         inorder(root->right);
@@ -36,7 +36,7 @@ class Node{
 int main(){
     Node *root = new Node(1);           //We can declare the root only once 
     root->left = new Node(2);           //Then we can use the normal navigation method and print
-    root->left->left = new Node(11);
+    root->left->left = new Node(11);    //This is implemented for a specific type of tree 
 
     root->right = new Node(3);
     root->right->left = new Node(4);

@@ -50,7 +50,7 @@ void bfs(unordered_map<int,vector<int>>adj){
     unordered_map<int, vector<int>> adj;
 
     for(vector<int> edge : edges){
-        adj[edge[0]].push_back(edge[1]);    //to join the 1st list to the second
+        adj[edge[0]].push_back(edge[1]);    //to join the 1st list to the second (key of first to value)
         adj[edge[1]].push_back(edge[0]);    //to join the 2nd list to the first
     }
 
